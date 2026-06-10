@@ -190,9 +190,9 @@ class AlquimiaAIIntegration(SkillsIntegration):
 
     def post_process_skill_content(self, content: str) -> str:
         """Inject Alquimia-specific frontmatter flags and hook notes."""
+        updated = super().post_process_skill_content(content)
         updated = self._inject_frontmatter_flag(content, "user-invocable")
         updated = self._inject_frontmatter_flag(updated, "disable-model-invocation", "false")
-        updated = self._inject_hook_command_note(updated)
         return updated
 
     def setup(
