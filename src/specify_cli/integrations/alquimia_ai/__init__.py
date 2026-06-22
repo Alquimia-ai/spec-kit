@@ -198,6 +198,7 @@ class AlquimiaAIIntegration(SkillsIntegration):
         updated = self._inject_frontmatter_flag(
             updated, "disable-model-invocation", "false"
         )
+        updated = self._inject_hook_command_note(updated)
         return updated
 
     def setup(
